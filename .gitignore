@@ -1,0 +1,36 @@
+# compiled output
+/dist
+/node_modules
+**/node_modules/**
+_node_modules
+
+# OS
+.DS_Store
+
+# Tests
+/coverage
+/.nyc_output
+.tmp
+_docpress
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# lock fiels
+yarn.lock
+package-lock.json
+
+# secret key
+.env
+.env.development
+.env.staging
+.env.production
+process.json
+
+.jest-cache
