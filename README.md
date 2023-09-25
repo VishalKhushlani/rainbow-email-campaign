@@ -18,8 +18,14 @@ Before starting the application, ensure you set up the required environment vari
 #### Set up your .env file based on the env.example.
 #### Run the application using npm start.
 
-## Installation
+## Database Setup 
+Run the docker compose file to intialize and setup the database
 
+```bash
+$ docker-compose up
+```
+
+## Installation
 ```bash
 $ npm install
 ```
