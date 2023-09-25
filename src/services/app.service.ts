@@ -11,6 +11,9 @@ export class AppService {
     private readonly productService: ProductService,
     private readonly discountService: DiscountService,
   ) {}
+  getHello(): string {
+    return 'Hello World!';
+  }
 
   async checkActiveCampaignForUser(userId: number) {
     const user = await this.userService.findUserById(userId);
