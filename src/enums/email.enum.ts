@@ -1,0 +1,3 @@
+export enum MailTypeEnum {
+  BIRTHDAY_DISCOUNT_CODES = 'BIRTHDAY_DISCOUNT_CODES',
+}
