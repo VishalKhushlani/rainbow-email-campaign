@@ -43,28 +43,6 @@ export class CampaignService {
     }
   }
 
-  async checkActiveCampaignForUser(userId: number) {
-    const user = await this.userService.findUserById(userId);
-    if (!user) {
-      throw new Error('User not found');
-    }
-
-    const isBirthdayCampaignActive = this.userService.isBirthdayWithinAWeek(
-      user.dateOfBirth,
-    );
-    let recommendedProducts = [];
-
-    if (isBirthdayCampaignActive) {
-      recommendedProducts =
-        await this.productService.getMostOrderedProductsByUser(userId);
-    }
-
-    return {
-      hasBirthdayCampaign: isBirthdayCampaignActive,
-      recommendedProducts,
-    };
-  }
-
   async sendBirthdayReminderEmails(): Promise<void> {
     const usersWithBirthdaysIn2Days =
       await this.userService.findUsersWithBirthdaysInDays(2);
@@ -89,5 +67,27 @@ export class CampaignService {
         emailData,
       );
     }
+  }
+
+  async checkActiveCampaignForUser(userId: number) {
+    const user = await this.userService.findUserById(userId);
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    const isBirthdayCampaignActive = this.userService.isBirthdayWithinAWeek(
+      user.dateOfBirth,
+    );
+    let recommendedProducts = [];
+
+    if (isBirthdayCampaignActive) {
+      recommendedProducts =
+        await this.productService.getMostOrderedProductsByUser(userId);
+    }
+
+    return {
+      hasBirthdayCampaign: isBirthdayCampaignActive,
+      recommendedProducts,
+    };
   }
 }

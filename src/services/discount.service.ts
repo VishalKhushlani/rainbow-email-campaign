@@ -42,4 +42,8 @@ export class DiscountService {
     // This is a simple example. In a real-world scenario, you might want to use a more complex algorithm.
     return Math.random().toString(36).substr(2, 8).toUpperCase();
   }
+
+  async validateDiscountCode(code: string): Promise<DiscountCodes> {
+    return this.validateCode(code);
+  }
 }
