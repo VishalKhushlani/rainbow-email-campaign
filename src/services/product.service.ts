@@ -41,7 +41,7 @@ export class ProductService {
     await this.productRepository.delete(id);
   }
 
-  // Fetch recommended products for a user (placeholder logic)
+  // Fetch recommended products for a user
   async getMostOrderedProductsByUser(userId: number): Promise<Product[]> {
     return this.productRepository
       .createQueryBuilder('product')
